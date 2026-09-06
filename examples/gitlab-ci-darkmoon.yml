@@ -1,0 +1,25 @@
+# Darkmoon autonomous pentest, GitLab CI template (open source, no license).
+# Set OPENROUTER_API_KEY and OPENCODE_MODEL as protected/masked CI variables.
+# Run this on a runner with Docker and enough resources for the stack.
+# Only test targets you are authorized to test.
+
+darkmoon_pentest:
+  stage: test
+  tags: [docker]
+  variables:
+    OPENROUTER_PROVIDER: "openrouter"
+    TARGET: "TARGET: https://juice-shop.local"
+  script:
+    - git clone --depth 1 https://github.com/ASCIT31/Dark-Moon.git darkmoon
+    - cd darkmoon
+    - export OPENROUTER_API_KEY="$OPENROUTER_API_KEY" OPENCODE_MODEL="$OPENCODE_MODEL" OPENROUTER_PROVIDER="$OPENROUTER_PROVIDER"
+    - chmod +x install.sh && ./install.sh
+    - ./darkmoon.sh run --agent pentest "$TARGET"
+    - mkdir -p ../reports
+    - for f in $(docker exec opencode bash -c "ls /opt/darkmoon/mcp/server/data/reports/*.md 2>/dev/null"); do docker exec opencode cat "$f" > "../reports/$(basename "$f")"; done
+  artifacts:
+    when: always
+    paths:
+      - reports/
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "web"'

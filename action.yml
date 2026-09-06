@@ -1,0 +1,66 @@
+name: "Darkmoon Autonomous Pentest"
+description: "Run the open source Darkmoon autonomous penetration testing platform against an authorized target in CI and upload the findings report as an artifact. No license required."
+branding:
+  icon: "shield"
+  color: "purple"
+
+inputs:
+  target:
+    description: 'Authorized target for the campaign, for example "TARGET: https://juice-shop.local" or "TARGET: 10.0.4.12". Only test targets you are authorized to test.'
+    required: true
+  model:
+    description: 'Model id passed to the reasoning engine (an Opus class model is recommended for full autonomous campaigns).'
+    required: true
+  api_key:
+    description: 'LLM provider API key (stored as a repository secret). Never hardcode it.'
+    required: true
+  provider:
+    description: 'LLM provider (openrouter, anthropic, openai, or a local endpoint).'
+    required: false
+    default: "openrouter"
+  ref:
+    description: 'Darkmoon git ref to check out.'
+    required: false
+    default: "main"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Clone Darkmoon (open source, GPLv3)
+      shell: bash
+      run: git clone --depth 1 --branch "${{ inputs.ref }}" https://github.com/ASCIT31/Dark-Moon.git darkmoon
+
+    - name: Install and start the stack (non interactive, no license)
+      shell: bash
+      working-directory: darkmoon
+      env:
+        OPENROUTER_PROVIDER: ${{ inputs.provider }}
+        OPENROUTER_API_KEY: ${{ inputs.api_key }}
+        OPENCODE_MODEL: ${{ inputs.model }}
+      run: |
+        chmod +x install.sh
+        ./install.sh
+
+    - name: Run the autonomous pentest
+      shell: bash
+      working-directory: darkmoon
+      run: |
+        echo "[CI] Darkmoon campaign starting"
+        ./darkmoon.sh run --agent pentest "${{ inputs.target }}"
+
+    - name: Collect findings reports
+      if: always()
+      shell: bash
+      run: |
+        mkdir -p darkmoon-reports
+        for f in $(docker exec opencode bash -c "ls /opt/darkmoon/mcp/server/data/reports/*.md 2>/dev/null"); do
+          docker exec opencode cat "$f" > "darkmoon-reports/$(basename "$f")"
+        done
+        ls -la darkmoon-reports || true
+
+    - name: Upload findings reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: darkmoon-reports
+        path: darkmoon-reports/
