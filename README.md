@@ -32,6 +32,13 @@ jobs:
           api_key: ${{ secrets.OPENROUTER_API_KEY }}
 ```
 
+## Examples
+
+Ready to use templates live in [`examples/`](examples/):
+
+* [`examples/github-actions-darkmoon.yml`](examples/github-actions-darkmoon.yml) deploys a disposable, authorized target inside the job and then runs the campaign against it (deploy then scan).
+* [`examples/gitlab-ci-darkmoon.yml`](examples/gitlab-ci-darkmoon.yml) is the equivalent template for GitLab CI.
+
 ## Inputs
 
 | Input | Required | Description |

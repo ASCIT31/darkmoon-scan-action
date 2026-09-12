@@ -1,0 +1,63 @@
+# Darkmoon autonomous pentest, GitHub Actions example (open source, no license).
+#
+# Pattern: deploy a target, then run an autonomous Darkmoon campaign against its
+# URL and upload the findings report as a build artifact. This mirrors the
+# examples/gitlab-ci-darkmoon.yml template for GitHub Actions users.
+#
+# Requirements:
+#   - A self-hosted runner (or large runner) with Docker and Docker Compose v2.
+#     The Darkmoon stack is resource heavy; standard hosted runners are not
+#     recommended for a full campaign.
+#   - Repository secrets: OPENROUTER_API_KEY and OPENCODE_MODEL (an Opus class
+#     model is recommended for a full autonomous campaign).
+#
+# IMPORTANT: only test targets you are explicitly authorized to test. In this
+# example the target is a throwaway service container started inside the job, so
+# the job only ever attacks its own ephemeral target.
+
+name: darkmoon-deploy-and-scan
+
+on:
+  workflow_dispatch:
+  # Uncomment to run on demand from a pull request label, a schedule, etc.
+  # schedule:
+  #   - cron: "0 3 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-and-scan:
+    runs-on: self-hosted   # needs Docker + Compose v2 and enough resources
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # 1) Deploy the target you want to validate. Replace this step with your
+      #    real preview/staging deploy. Here we start OWASP Juice Shop as a
+      #    disposable, authorized target on the runner.
+      - name: Deploy the target application
+        run: |
+          docker run -d --name target -p 3000:3000 bkimminich/juice-shop:latest
+          # Wait for the target to answer before scanning it.
+          for i in $(seq 1 30); do
+            if curl -fsS http://localhost:3000 >/dev/null 2>&1; then
+              echo "target is up"; break
+            fi
+            sleep 5
+          done
+
+      # 2) Run the autonomous Darkmoon campaign against the deployed target.
+      - name: Run Darkmoon autonomous pentest
+        uses: ASCIT31/darkmoon-scan-action@v1
+        with:
+          target: "TARGET: http://localhost:3000 PROGRAM=\"Juice Shop (authorized ephemeral target)\""
+          provider: openrouter
+          model: ${{ secrets.OPENCODE_MODEL }}
+          api_key: ${{ secrets.OPENROUTER_API_KEY }}
+
+      # 3) The action already uploads the findings report as the
+      #    "darkmoon-reports" artifact. Tear the target down when finished.
+      - name: Tear down the target
+        if: always()
+        run: docker rm -f target || true
