@@ -22,6 +22,14 @@ Run [Darkmoon](https://github.com/ASCIT31/Dark-Moon), the open source (GPLv3) au
 
 <sub>The open source Darkmoon CLI, <code>darkmoon.sh --log</code> streaming a run's live output, the same terminal engine this Action drives inside your CI.</sub>
 
+<br>
+
+<img src=".github/assets/dashboard.png" alt="Pro web dashboard, Darkmoon campaigns and severity breakdown" width="90%">
+
+<sub><b>Pro:</b> the paid Darkmoon Pro web dashboard, campaigns, severity breakdown and findings. This Action uses the open source CLI and needs no license key.</sub>
+
+<sub><b>Web dashboard and remediation are Darkmoon Pro (paid) features; the open source edition is the CLI shown above.</b></sub>
+
 </div>
 
 Darkmoon runs 50 specialist security agents over MCP orchestration, driving 50+ offensive tools across web, API, Active Directory, Kubernetes, cloud, CMS and network targets. Every finding ships with reproducible proof of exploitation. It is fully self hosted, and its Privacy Gateway tokenizes sensitive target values before any cloud model sees them, so real IPs, hostnames and credentials stay on your machine.
