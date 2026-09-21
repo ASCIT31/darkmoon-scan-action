@@ -18,9 +18,9 @@ Run [Darkmoon](https://github.com/ASCIT31/Dark-Moon), the open source (GPLv3) au
 
 <div align="center">
 
-<img src=".github/assets/dashboard.png" alt="The Darkmoon dashboard showing campaigns, severity breakdown and findings" width="90%">
+<img src=".github/assets/cli_log.png" alt="Darkmoon open source CLI, live terminal log of a pentest run streaming its commands" width="90%">
 
-<sub>The Darkmoon dashboard, campaigns, severity breakdown and the findings a CI run produces.</sub>
+<sub>The open source Darkmoon CLI, <code>darkmoon.sh --log</code> streaming a run's live output, the same terminal engine this Action drives inside your CI.</sub>
 
 </div>
 
