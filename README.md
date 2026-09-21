@@ -1,5 +1,11 @@
 # Darkmoon Autonomous Pentest (GitHub Action)
 
+### Part of [Darkmoon, the open source autonomous AI penetration testing platform](https://github.com/ASCIT31/Dark-Moon)
+
+[![Star Dark-Moon](https://img.shields.io/github/stars/ASCIT31/Dark-Moon?style=social)](https://github.com/ASCIT31/Dark-Moon)
+
+If Darkmoon is useful, a star on the [main repo](https://github.com/ASCIT31/Dark-Moon) helps others find it.
+
 Run [Darkmoon](https://github.com/ASCIT31/Dark-Moon), the open source (GPLv3) autonomous penetration testing platform, against an authorized target inside your CI, and upload the findings report as a build artifact.
 
 Darkmoon runs 50 specialist security agents over MCP orchestration, driving 50+ offensive tools across web, API, Active Directory, Kubernetes, cloud, CMS and network targets. Every finding ships with reproducible proof of exploitation. It is fully self hosted, and its Privacy Gateway tokenizes sensitive target values before any cloud model sees them, so real IPs, hostnames and credentials stay on your machine.
