@@ -1,12 +1,28 @@
+<div align="center">
+
+<a href="https://github.com/ASCIT31/Dark-Moon"><img src=".github/assets/darkmoon-banner.png" alt="Darkmoon, autonomous AI penetration testing" width="100%"></a>
+
 # Darkmoon Autonomous Pentest (GitHub Action)
 
 ### Part of [Darkmoon, the open source autonomous AI penetration testing platform](https://github.com/ASCIT31/Dark-Moon)
 
 [![Star Dark-Moon](https://img.shields.io/github/stars/ASCIT31/Dark-Moon?style=social)](https://github.com/ASCIT31/Dark-Moon)
 
+[![License GPLv3](https://img.shields.io/badge/license-GPLv3-0A2472)](https://github.com/ASCIT31/Dark-Moon) [![No license key required](https://img.shields.io/badge/open%20source-no%20license%20key-2667FF)](#no-license-required) [![Self-hosted runner](https://img.shields.io/badge/runs%20on-self--hosted%20CI-87BFFF)](#requirements-and-limitations) [![Website](https://img.shields.io/badge/site-dark--moon.org-0A2472)](https://dark-moon.org)
+
+</div>
+
 If Darkmoon is useful, a star on the [main repo](https://github.com/ASCIT31/Dark-Moon) helps others find it.
 
 Run [Darkmoon](https://github.com/ASCIT31/Dark-Moon), the open source (GPLv3) autonomous penetration testing platform, against an authorized target inside your CI, and upload the findings report as a build artifact.
+
+<div align="center">
+
+<img src=".github/assets/dashboard.png" alt="The Darkmoon dashboard showing campaigns, severity breakdown and findings" width="90%">
+
+<sub>The Darkmoon dashboard, campaigns, severity breakdown and the findings a CI run produces.</sub>
+
+</div>
 
 Darkmoon runs 50 specialist security agents over MCP orchestration, driving 50+ offensive tools across web, API, Active Directory, Kubernetes, cloud, CMS and network targets. Every finding ships with reproducible proof of exploitation. It is fully self hosted, and its Privacy Gateway tokenizes sensitive target values before any cloud model sees them, so real IPs, hostnames and credentials stay on your machine.
 
