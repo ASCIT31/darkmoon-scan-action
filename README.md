@@ -72,6 +72,20 @@ jobs:
 | `provider` | no | LLM provider (`openrouter`, `anthropic`, `openai`, or a local endpoint). Default `openrouter`. |
 | `ref` | no | Darkmoon git ref to check out. Default `main`. |
 
+## CI/CD examples
+
+Copy-paste workflows for **autonomous pentest in CI/CD** live in [`examples/`](examples). They run the open source Darkmoon CLI against an authorized staging URL, on a schedule and on deploy, and upload the Markdown findings as build artifacts.
+
+| Platform | File | What it shows |
+| --- | --- | --- |
+| **GitHub Actions security testing** | [`examples/github-actions-pentest.yml`](examples/github-actions-pentest.yml) | Autonomous pentest on a nightly schedule **and** after a successful deployment, using this action. |
+| **GitLab CI DAST** | [`examples/gitlab-ci-pentest.yml`](examples/gitlab-ci-pentest.yml) | `.gitlab-ci.yml` dynamic application security testing stage, on deploy and from a pipeline schedule, calling the open source CLI directly. |
+| **Jenkins** | [`examples/jenkins-pipeline.groovy`](examples/jenkins-pipeline.groovy) | Declarative `Jenkinsfile` stage with a nightly cron trigger, archiving the findings reports. |
+
+All three drive the same open source Darkmoon CLI: it finds, exploits and **proves** each issue against a target you are authorized to test, runs fully self hosted, and its Privacy Gateway tokenizes sensitive target values locally before any cloud model sees them.
+
+> **Open source vs Pro.** The examples above use the open source CLI (find, prove, local, privacy). Scheduled orchestration at scale, the web dashboard, and finding-to-fix **remediation pull requests** are **Darkmoon Pro** (paid) features. No license key is required for the CLI or this action.
+
 ## Requirements and limitations
 
 * Docker and Docker Compose v2 on the runner.
