@@ -8,7 +8,7 @@
 
 [![Star Dark-Moon](https://img.shields.io/github/stars/ASCIT31/Dark-Moon?style=social)](https://github.com/ASCIT31/Dark-Moon)
 
-[![License GPLv3](https://img.shields.io/badge/license-GPLv3-0A2472)](https://github.com/ASCIT31/Dark-Moon) [![No license key required](https://img.shields.io/badge/open%20source-no%20license%20key-2667FF)](#no-license-required) [![Self-hosted runner](https://img.shields.io/badge/runs%20on-self--hosted%20CI-87BFFF)](#requirements-and-limitations) [![Website](https://img.shields.io/badge/site-dark--moon.org-0A2472)](https://dark-moon.org)
+[![Darkmoon license AGPL-3.0](https://img.shields.io/badge/Darkmoon%20license-AGPL--3.0-0A2472)](https://github.com/ASCIT31/Dark-Moon/blob/master/LICENSING.md) [![No license key required](https://img.shields.io/badge/open%20source-no%20license%20key-2667FF)](#no-license-required) [![Self-hosted runner](https://img.shields.io/badge/runs%20on-self--hosted%20CI-87BFFF)](#requirements-and-limitations) [![Website](https://img.shields.io/badge/site-dark--moon.org-0A2472)](https://dark-moon.org)
 
 </div>
 
@@ -17,7 +17,7 @@
 
 If Darkmoon is useful, a star on the [main repo](https://github.com/ASCIT31/Dark-Moon) helps others find it.
 
-Run [Darkmoon](https://github.com/ASCIT31/Dark-Moon), the open source (GPLv3) autonomous penetration testing platform, against an authorized target inside your CI, and upload the findings report as a build artifact.
+Run [Darkmoon](https://github.com/ASCIT31/Dark-Moon), the open source (AGPL-3.0) autonomous penetration testing platform, against an authorized target inside your CI, and upload the findings report as a build artifact.
 
 <div align="center">
 
@@ -105,4 +105,4 @@ All three drive the same open source Darkmoon CLI: it finds, exploits and **prov
 
 ## License
 
-GPLv3, same as Darkmoon.
+This action is published under the GNU GPL v3.0 (this repository has no LICENSE file yet). Darkmoon itself is AGPL-3.0, see [LICENSING.md](https://github.com/ASCIT31/Dark-Moon/blob/master/LICENSING.md).
