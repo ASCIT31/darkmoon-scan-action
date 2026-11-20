@@ -8,12 +8,12 @@
 
 [![Star Dark-Moon](https://img.shields.io/github/stars/ASCIT31/Dark-Moon?style=social)](https://github.com/ASCIT31/Dark-Moon)
 
-[![Darkmoon license AGPL-3.0](https://img.shields.io/badge/Darkmoon%20license-AGPL--3.0-0A2472)](https://github.com/ASCIT31/Dark-Moon/blob/master/LICENSING.md) [![No license key required](https://img.shields.io/badge/open%20source-no%20license%20key-2667FF)](#no-license-required) [![Self-hosted runner](https://img.shields.io/badge/runs%20on-self--hosted%20CI-87BFFF)](#requirements-and-limitations) [![Website](https://img.shields.io/badge/site-dark--moon.org-0A2472)](https://dark-moon.org)
+[![License: AGPL-3.0](https://img.shields.io/badge/license-AGPL--3.0-0A2472)](LICENSING.md) [![Darkmoon license AGPL-3.0](https://img.shields.io/badge/Darkmoon%20license-AGPL--3.0-0A2472)](https://github.com/ASCIT31/Dark-Moon/blob/master/LICENSING.md) [![No license key required](https://img.shields.io/badge/open%20source-no%20license%20key-2667FF)](#no-license-required) [![Self-hosted runner](https://img.shields.io/badge/runs%20on-self--hosted%20CI-87BFFF)](#requirements-and-limitations) [![Website](https://img.shields.io/badge/site-dark--moon.org-0A2472)](https://dark-moon.org)
 
 </div>
 
 > [!IMPORTANT]
-> **License change.** Darkmoon Community is moving from the GNU GPL v3.0 to the GNU AGPL v3.0. Every commit published up to `edfe9cb` (27 October 2026) stays under the GNU GPL v3.0, and the contributions made by outside contributors before the switch also stay under the GNU GPL v3.0 (they are not relicensed). Details: [LICENSING.md](https://github.com/ASCIT31/Dark-Moon/blob/master/LICENSING.md).
+> **License change.** This action moved from the GNU GPL v3.0 (stated in this README, without a LICENSE file) to the GNU AGPL v3.0 on 20 November 2026; every commit up to `bd059e0`, including the current `v1` tag, stays under the GNU GPL v3.0. Darkmoon Community is moving to the GNU AGPL v3.0 too (its commits up to `edfe9cb`, 27 October 2026, and earlier outside contributions stay GPL v3.0). Details: [LICENSING.md](LICENSING.md) · [Darkmoon LICENSING.md](https://github.com/ASCIT31/Dark-Moon/blob/master/LICENSING.md).
 
 If Darkmoon is useful, a star on the [main repo](https://github.com/ASCIT31/Dark-Moon) helps others find it.
 
@@ -105,4 +105,4 @@ All three drive the same open source Darkmoon CLI: it finds, exploits and **prov
 
 ## License
 
-This action is published under the GNU GPL v3.0 (this repository has no LICENSE file yet). Darkmoon itself is AGPL-3.0, see [LICENSING.md](https://github.com/ASCIT31/Dark-Moon/blob/master/LICENSING.md).
+This action is licensed under the GNU AGPL v3.0 (AGPL-3.0-only), see [LICENSE](LICENSE) and [LICENSING.md](LICENSING.md). Earlier versions, up to commit `bd059e0` and the current `v1` tag, stay under the GNU GPL v3.0. Darkmoon itself is AGPL-3.0, see [LICENSING.md](https://github.com/ASCIT31/Dark-Moon/blob/master/LICENSING.md).
