@@ -1,5 +1,5 @@
 name: "Darkmoon Autonomous Pentest"
-description: "Run the open source Darkmoon autonomous penetration testing platform against an authorized target in CI and upload the findings report as an artifact. No license required."
+description: "Run the open source Darkmoon autonomous penetration testing platform against an authorized target in CI and upload the findings report as an artifact. No license key required."
 branding:
   icon: "shield"
   color: "purple"
@@ -26,7 +26,7 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Clone Darkmoon (open source, GPLv3)
+    - name: Clone Darkmoon (open source, AGPL-3.0)
       shell: bash
       run: git clone --depth 1 --branch "${{ inputs.ref }}" https://github.com/ASCIT31/Dark-Moon.git darkmoon
 
